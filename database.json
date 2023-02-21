@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Pala Irén",
+      "city": "Szeged",
+      "salary": 345
+    },
+    {
+      "id": 2,
+      "name": "Gáz Géza",
+      "city": "Tata",
+      "salary": 355
+    },
+    {
+      "id": 3,
+      "name": "Peti Péter",
+      "city": "Pilis",
+      "salary": 545
+    },
+    {
+      "id": 5,
+      "name": "Nagy Irénke",
+      "city": "Szolnok",
+      "salary": 745
+    },
+    {
+      "name": "Parlag Kati",
+      "city": "Szeged",
+      "salary": 440,
+      "id": 6
+    },
+    {
+      "name": "Kicsi Kati",
+      "city": "Tát",
+      "salary": 390,
+      "id": 7
+    }
+  ]
+}
