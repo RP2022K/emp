@@ -35,6 +35,12 @@
       "city": "Tát",
       "salary": 390,
       "id": 7
+    },
+    {
+      "name": "Kicsike Katika",
+      "city": "Tét",
+      "salary": "999",
+      "id": 9
     }
   ]
 }
