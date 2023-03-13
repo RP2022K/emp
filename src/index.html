@@ -11,6 +11,17 @@
 </head>
 
 <body>
+
+    <ul class="nav justify-content-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Dolgozók</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Belépés</a>
+        </li>
+      </ul>
+
     <div class="container">
         <h1>Dolgozók</h1>
 
@@ -27,6 +38,7 @@
                     <th>Település</th>
                     <th>Fizetés</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="dolgozoTorzs">
@@ -36,7 +48,7 @@
 
     </div>
 
-    <!-- Modal -->
+    <!-- Add Modal -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -102,7 +114,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="addButonSave">Mentés</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="updateButonSave">Mentés</button>
                 </div>
             </div>
         </div>

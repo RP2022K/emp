@@ -9,9 +9,9 @@ const modIdInput = document.querySelector("#modIdInput");
 const modNameInput = document.querySelector("#modNameInput");
 const modCityInput = document.querySelector("#modCityInput");
 const modSalaryInput = document.querySelector("#modSalaryInput");
+const updateButtonSave = document.querySelector("#updateButtonSave");
 
-
-const host = 'http://localhost:3000/';
+const host = 'http://localhost:8000/';
 const endpoint = 'employees';
 const url = host + endpoint;
 
@@ -19,7 +19,7 @@ getEmployees();
 
 function getEmployees() {
     fetch(url)
-        .then((res) => (res.json())
+        .then((response) => (response.json())
             .then(result => {
                 console.log(result);
                 loadEmployees(result);
@@ -54,7 +54,7 @@ function loadEmployees(dolgozoLista) {
         tr.append(tdSalary);
 
         tr.append(generateDeleteButton(dolgozo.id));
-
+        tr.append(generateModifyButton(dolgozo));
     });
 };
 
@@ -80,6 +80,10 @@ function generateModifyButton(dolgozo) {
     let button = document.createElement('button');
     button.textContent = 'Szerkesztés';
     button.classList = 'btn btn-success';
+    
+    button.setAttribute('data-bs-toggle', 'modal');
+    button.setAttribute('data-bs-target', '#modModal');
+    
     button.addEventListener('click', () => {
         console.log("működik " + id);
         
@@ -101,11 +105,10 @@ function deleteEmployee(id) {
     fetch(fullUrl, {
         method: 'DELETE'
     })
-        .catch(err => console.log(err));
-    
+    .catch(err => console.log(err)); 
 }
 
-addButonSave.addEventListener('click', () => {
+addButtonSave.addEventListener('click', () => {
     console.log("Hozzáadás...");
     addEmployee();
     clearInputElements();
@@ -128,14 +131,49 @@ function addEmployee() {
             "Content-type": "application/json"
         }
     })
-        .then((response) => response.json())
-        .then((result) => console.log(result))
-        .catch(err => console.log(err))
-        ;
+    .then((response) => response.json())
+    .then((result) => {
+        console.log(result);
+        console.log('belül')
+    })
+    .catch(err => console.log(err))
 }
 
 function clearInputElements() {
     nameInput.value = '';
     cityInput.value = '';
     salaryInput.value = '';
+}
+
+updateButtonSave.addEventListener('click', () => {
+    
+    let id = modIdInput.value;
+    let name = modNameInput.value;
+    let city = modCityInput.value;
+    let salary = modSalaryInput.value;    
+    let employee = {
+        id: id,
+        name: name,
+        city: city,
+        salary: salary
+    }    
+    updateEmployee(employee);
+})
+
+function updateEmployee(emp) {
+    console.log(emp);
+    console.log(JSON.stringify(emp));
+    let urlSec = url + "/" + emp.id;
+    console.log(urlSec)
+    fetch(urlSec, {
+        method: 'PUT',
+        body: JSON.stringify(emp),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+
 }

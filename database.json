@@ -31,16 +31,10 @@
       "id": 6
     },
     {
-      "name": "Kicsi Kati",
-      "city": "Tát",
-      "salary": 390,
-      "id": 7
-    },
-    {
       "name": "Kicsike Katika",
-      "city": "Tét",
-      "salary": "999",
-      "id": 9
+      "city": "Tata",
+      "salary": "666",
+      "id": 7
     }
   ]
 }
