@@ -65,7 +65,7 @@ function generateDeleteButton(id) {
     button.textContent = 'Törlés';
     button.classList = 'btn btn-danger';
     button.addEventListener('click', () => {
-        console.log("működik " + id);
+        //console.log("működik " + id);
         deleteEmployee(id);
         dolgozoTorzs.textContent = '';
         getEmployees();
@@ -85,7 +85,7 @@ function generateModifyButton(dolgozo) {
     button.setAttribute('data-bs-target', '#modModal');
     
     button.addEventListener('click', () => {
-        console.log("működik " + id);
+        console.log("működik " + dolgozo.id);
         
         modIdInput.value = dolgozo.id;
         modNameInput.value = dolgozo.name;
